@@ -72,9 +72,11 @@ import com.example.dessertclicker.model.Dessert
 import com.example.dessertclicker.ui.theme.DessertClickerTheme
 
 class MainActivity : ComponentActivity() {
+    // onCreate does one time initializations for the activity
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
+        // setContent specifies the UI layout
         setContent {
             DessertClickerTheme {
                 // A surface container using the 'background' color from the theme
