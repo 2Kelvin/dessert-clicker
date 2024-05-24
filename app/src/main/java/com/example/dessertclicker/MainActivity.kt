@@ -108,6 +108,7 @@ class MainActivity : ComponentActivity() {
     }
 
     // logging other activity lifecycle methods
+    // makes the app ready for interaction from the user
     override fun onResume() {
         super.onResume()
         Log.d(TAG, "onResume Called")
