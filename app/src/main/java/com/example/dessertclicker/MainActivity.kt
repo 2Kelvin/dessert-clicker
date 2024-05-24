@@ -20,6 +20,7 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -71,11 +72,18 @@ import com.example.dessertclicker.data.Datasource
 import com.example.dessertclicker.model.Dessert
 import com.example.dessertclicker.ui.theme.DessertClickerTheme
 
+// declared using const to make the value of TAG known during compilation
+private const val TAG = "MainActivity"
+
 class MainActivity : ComponentActivity() {
     // onCreate does one time initializations for the activity
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
+        // observing MainActivity being created using onCreate
+        // Log writes log messages to the Logcat console
+        // Log.d() logs a "debug" message to logcat
+        Log.d(TAG, "onCreate Called")
         // setContent specifies the UI layout
         setContent {
             DessertClickerTheme {
@@ -90,6 +98,41 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+    // onStart lifecycle method
+    // onStart makes the activity visible on the screen
+    // and runs after onCreate()
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart Called") // observing MainActivity being created
+    }
+
+    // logging other activity lifecycle methods
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume Called")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.d(TAG, "onRestart Called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause Called")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop Called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroy Called")
+    }
+
 }
 
 /**
