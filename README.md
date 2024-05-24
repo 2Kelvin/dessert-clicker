@@ -2,15 +2,17 @@
 
 App created to learn about about the `lifecycle of an android activity`
 
+![dessert-clicker](https://github.com/2Kelvin/dessert-clicker/assets/85868026/40fff5e8-4031-4281-a4ff-f7acec690013)
+
 ## FutureMe Notes
 
 - Android activities begin in the `onCreate()` method
 - List of all activity lifecycle states (and their methods):
-    - Created (`onCreate()`) -> initializes an activity
-    - Initialized
-    - Started (`onStart()`, `OnRestart()`) -> onStart displays UI to screen, onRestart re-displays UI after it had been made non-visible by `onStop()`
-    - Destroyed (`onDestroy()`) -> destroys Activity & gives back resources used to android OS
-    - Resumed (`onResume()`) -> gives the activity, user interaction focus; `onPause(`) takes away user interaction focus
+    - **Created** (`onCreate()`) -> initializes an activity
+    - **Initialized**
+    - **Started** (`onStart()`, `OnRestart()`) -> onStart displays UI to screen, onRestart re-displays UI after it had been made non-visible by `onStop()`
+    - **Destroyed** (`onDestroy()`) -> destroys Activity & gives back resources used to android OS
+    - **Resumed** (`onResume()`) -> gives the activity, user interaction focus; `onPause(`) takes away user interaction focus
 - the above states don't move in one predetermined single direction, they can move back and forth between each other
 - every activity must implement the onCreate() method. It's where the activity is initialized
 - setContent() in the onCreate() method specifies the activity's UI layout
@@ -32,4 +34,4 @@ App created to learn about about the `lifecycle of an android activity`
 - `onRestart()` is called when returning to an app that had been created then stopped but not destroyed yet. It retrieves the data that was before the app was stopped / pushed to the background
 - `onDestroy()` is called to destroy an activity. onStop is called right before onDestroy is called
 - device configuration changes can cause an activity to be destroyed and recreated again to accommodate the new changes. Examples of such configuration changes are: phone rotation, system language settings change etc
-  - unlike `remember` which triggers recomposition when state changes, `rememberSaveable` triggers recomposition on state change and retains the current state after a device configuration changes
+- unlike `remember` which triggers recomposition when state changes, `rememberSaveable` triggers recomposition on state change and retains the current state after a device configuration changes
