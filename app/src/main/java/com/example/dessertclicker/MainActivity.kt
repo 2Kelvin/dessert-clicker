@@ -133,16 +133,12 @@ class MainActivity : ComponentActivity() {
         super.onDestroy()
         Log.d(TAG, "onDestroy Called")
     }
-
 }
 
 /**
  * Determine which dessert to show.
  */
-fun determineDessertToShow(
-    desserts: List<Dessert>,
-    dessertsSold: Int
-): Dessert {
+fun determineDessertToShow(desserts: List<Dessert>, dessertsSold: Int): Dessert {
     var dessertToShow = desserts.first()
     for (dessert in desserts) {
         if (dessertsSold >= dessert.startProductionAmount) {
@@ -186,9 +182,7 @@ private fun shareSoldDessertsInformation(intentContext: Context, dessertsSold: I
 }
 
 @Composable
-private fun DessertClickerApp(
-    desserts: List<Dessert>
-) {
+private fun DessertClickerApp(desserts: List<Dessert>) {
 
     var revenue by rememberSaveable { mutableStateOf(0) }
     var dessertsSold by rememberSaveable { mutableStateOf(0) }
